@@ -13,6 +13,6 @@ router.get("/", getAllDataSensor);
 router.get("/:id", getDataSensorByID);
 router.post("/", addDataSensor);
 router.delete("/:id", deleteDataSensorByID);
-router.put("/:id", updateDataSensorByID);
+router.patch("/:id", updateDataSensorByID);
 
 module.exports = router;

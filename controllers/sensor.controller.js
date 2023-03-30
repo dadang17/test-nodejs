@@ -10,7 +10,17 @@ module.exports = {
     });
   },
 
-  getDataSensorByID: (req, res) => {},
+  getDataSensorByID: (req, res) => {
+    Sensor.findById(req.params.id, "-__v").then((sensorFound) => {
+      if (sensorFound === null) {
+        res.status(404).json({
+          message: "Not Found!",
+        });
+      } else {
+        res.status(200).json(sensorFound);
+      }
+    });
+  },
 
   addDataSensor: (req, res) => {
     const data = req.body;
@@ -23,7 +33,31 @@ module.exports = {
     });
   },
 
-  deleteDataSensorByID: (req, res) => {},
+  deleteDataSensorByID: (req, res) => {
+    Sensor.findByIdAndRemove(req.params.id).then((sensorFound) => {
+      if (sensorFound === null) {
+        res.status(404).json({
+          message: "Not Found!",
+        });
+      } else {
+        res.status(201).json({
+          message: "Deleted Succesfully",
+        });
+      }
+    });
+  },
 
-  updateDataSensorByID: (req, res) => {},
+  updateDataSensorByID: (req, res) => {
+    Sensor.updateOne({ _id: req.params.id }, req.body).then((sensorFound) => {
+      if (sensorFound === null) {
+        res.status(404).json({
+          message: "Not Found!",
+        });
+      } else {
+        res.status(201).json({
+          message: "update Succesfully",
+        });
+      }
+    });
+  },
 };

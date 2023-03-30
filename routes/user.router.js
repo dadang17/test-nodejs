@@ -13,6 +13,6 @@ router.get("/", getAllUser);
 router.get("/:id", getUserByID);
 router.post("/", addUser);
 router.delete("/:id", deleteUserByID);
-router.put("/:id", updateUserByID);
+router.patch("/:id", updateUserByID);
 
 module.exports = router;
