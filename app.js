@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./config/db");
+const bodyParser = require("body-parser");
 
 const allRoutes = require("./routes");
 
@@ -12,6 +13,7 @@ db.then(() => {
   console.log(err);
 });
 
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(allRoutes);
 
