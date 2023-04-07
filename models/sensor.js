@@ -7,6 +7,7 @@ const sensorSchema = new Schema(
     adc: Number,
     tegangan: Number,
     soil: Number,
+    arahAngin: Number,
   },
   {
     timestamps: true,
