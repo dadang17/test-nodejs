@@ -9,12 +9,13 @@ const PORT = process.env.PORT || 3000;
 
 db.then(() => {
   console.log("database terkoneksi");
-}).catch((err) => {
-  console.log(err);
+}).catch((error) => {
+  console.log(error);
 });
 
 app.use(bodyParser.json());
 app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
 app.use(allRoutes);
 
 app.listen(PORT, () => {
