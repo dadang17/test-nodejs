@@ -14,10 +14,6 @@ db.then(() => {
   console.log(error);
 });
 
-app.use(bodyParser.json());
-app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-app.use(allRoutes);
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -25,10 +21,10 @@ app.use(
   })
 );
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  next();
-});
+app.use(bodyParser.json());
+app.use(express.json());
+// app.use(express.urlencoded({ extended: false }));
+app.use(allRoutes);
 
 app.listen(PORT, () => {
   console.log("server running on port " + PORT);
