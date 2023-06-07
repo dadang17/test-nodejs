@@ -8,6 +8,11 @@ const resultSchema = new Schema(
       type: Number,
       required: true,
     },
+    penyiraman: { type: String, required: String },
+    pemupukan: {
+      type: String,
+      required: String,
+    },
     description_result: {
       type: String,
       required: String,
